@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Details</title>
+  <style>
+        /* [CSS styles as previously provided] */
+    </style>
+</head>
+<body>
+
+<div>
+  <h2>Employee Details</h2>
+
+  <button class="add-button" onclick="showForm()">Add Employee</button>
+
+  <div id="employeeForm" class="hidden">
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Last Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="gender" placeholder="Gender">
+    <input type="tel" id="phoneNumber" placeholder="Phone Number">
+    <input type="text" id="department" placeholder="Department">
+    <button onclick="addEmployee()">Save</button>
+  </div>
+
+  <table id="employeeTable">
+    <tr>
+      <th>FirstName</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Gender</th>
+      <th>Phone Number</th>
+      <th>Department</th>
+    </tr>
+    <!-- Existing rows... -->
+  </table>
+</div>
+
+<script>
+    function showForm() {
+        document.getElementById('employeeForm').style.display = 'block';
+    }
+
+    function addEmployee() {
+        var table = document.getElementById("employeeTable");
+        var row = table.insertRow(-1);
+        var firstName = row.insertCell(0);
+        var lastName = row.insertCell(1);
+        var email = row.insertCell(2);
+        var gender = row.insertCell(3);
+        var phoneNumber = row.insertCell(4);
+        var department = row.insertCell(5);
+
+        firstName.innerHTML = document.getElementById("firstName").value;
+        lastName.innerHTML = document.getElementById("lastName").value;
+        email.innerHTML = document.getElementById("email").value;
+        gender.innerHTML = document.getElementById("gender").value;
+        phoneNumber.innerHTML = document.getElementById("phoneNumber").value;
+        department.innerHTML = document.getElementById("department").value;
+
+        // Clear the form fields after adding
+        document.getElementById("firstName").value = "";
+        document.getElementById("lastName").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("gender").value = "";
+        document.getElementById("phoneNumber").value = "";
+        document.getElementById("department").value = "";
+
+        // Hide the form after adding
+        document.getElementById('employeeForm').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
